@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>{{ current_service_details.name }}</title>{% endblock %}
+
+	{% block content %}
+
+
+        <!--================Banner Area =================-->
+        <section class="banner_area" style="background: url({{ current_service_details.banner.url }}); background-size: cover">
+            <div class="container">
+                <div class="banner_inner_text">
+                    <h4>{{ current_service_details.name }}</h4>
+                    <ul>
+                        <li><a href="{% url 'services' %}">Услуги</a></li>
+                        <li class="active"><a href="{{ current_service_details.get_url }}">{{ current_service_details.name }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--================End Banner Area =================-->
+
+        <!--================Service Single Area =================-->
+        <section class="service_single_area">
+            <div class="container">
+                <div style="margin-top:-70px; margin-bottom:20px;" class="row s_text_inner">
+                    <div class="col-md-12">
+                        <div class="left_service_desc">
+                            <h4 class="project_title">{{ current_service_details.title_2 }}</h4>
+                            <p>{{ current_service_details.text_2|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service_single_inner">
+                    <div class="project_single_slider">
+                        <div id="slider" class="flexslider">
+                            <ul class="slides">
+                                {% if current_service_details.image_1 %}
+                                <li><img src="{{ current_service_details.image_1.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_2 %}
+                                <li><img src="{{ current_service_details.image_2.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_3 %}
+                                <li><img src="{{ current_service_details.image_3.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_4 %}
+                                <li><img src="{{ current_service_details.image_4.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_5 %}
+                                <li><img src="{{ current_service_details.image_5.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_6 %}
+                                <li><img src="{{ current_service_details.image_6.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_7 %}
+                                <li><img src="{{ current_service_details.image_7.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_8 %}
+                                <li><img src="{{ current_service_details.image_8.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_9 %}
+                                <li><img src="{{ current_service_details.image_9.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.image_10 %}
+                                <li><img src="{{ current_service_details.image_10.url }}" alt=""></li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                        <div id="carousel" class="flexslider">
+                            <ul class="slides">
+                                {% if current_service_details.thumb_1 %}
+                                <li><img src="{{ current_service_details.thumb_1.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_2 %}
+                                <li><img src="{{ current_service_details.thumb_2.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_3 %}
+                                <li><img src="{{ current_service_details.thumb_3.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_4 %}
+                                <li><img src="{{ current_service_details.thumb_4.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_5 %}
+                                <li><img src="{{ current_service_details.thumb_5.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_6 %}
+                                <li><img src="{{ current_service_details.thumb_6.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_7 %}
+                                <li><img src="{{ current_service_details.thumb_7.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_8 %}
+                                <li><img src="{{ current_service_details.thumb_8.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_9 %}
+                                <li><img src="{{ current_service_details.thumb_9.url }}" alt=""></li>
+                                {% endif %}
+                                {% if current_service_details.thumb_10 %}
+                                <li><img src="{{ current_service_details.thumb_10.url }}" alt=""></li>
+                                {% endif %}
+
+                            </ul>
+                            <div class="custom-navigation">
+                                <a href="#" class="flex-prev"><i class="fa fa-angle-left"></i></a>
+                                <a href="#" class="flex-next"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div class="row s_text_inner">-->
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="left_service_desc">-->
+<!--                                <h4 class="project_title">{{ current_service_details.title_2 }}</h4>-->
+<!--                                <p>{{ current_service_details.text_2 }}</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </section>
+        <!--================End Service Single Area =================-->
+
+
+
+    {% endblock %}

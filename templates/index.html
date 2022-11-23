@@ -72,10 +72,10 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="{% url 'index' %}">Начало</a></li>
-                                <li><a href="#about">О нас</a></li>
-                                <li><a href="#services">Услуги</a></li>
-                                <li><a href="#projects">Проекты</a></li>
-                                <li><a href="#testimonials">Отзывы</a></li>
+                                <li><a href="{% url 'index' %}#about">О нас</a></li>
+                                <li><a href="{% url 'services' %}">Услуги</a></li>
+                                <li><a href="{% url 'index' %}#projects">Проекты</a></li>
+                                <li><a href="{% url 'index' %}#testimonials">Отзывы</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </nav>
@@ -199,6 +199,7 @@
             </div>
         </section>
         <!--================End Main Slider Area =================-->
+
         <!--================Get Quote Area =================-->
         <section class="get_quote_area">
             <div class="container">
@@ -240,16 +241,16 @@
         <section id='services' class="our_service_area">
             <div class="left_service">
                 <div class="left_service_inner">
-                    {% for i in index %}
+                    {% for i in all_services %}
                     <div class="service_item">
                         <div class="service_item_inner">
                             <div class="service_icon">
-                                <img src="" alt="">
-                                <img src="" alt="">
+                                <img style="width:48px; height:48px;" src="{{ i.icon_1.url }}">
+                                <img style="width:48px; height:48px;" src="{{ i.icon_2.url }}">
                             </div>
-                            <a href="{{ i.anchor }}"><h4>{{ i.name }}</h4></a>
+                            <a href="{{i.get_url }}"><h4>{{ i.name }}</h4></a>
                             <p>{{ i.short_description }}</p>
-                            <a class="view_btn" href="{{ i.anchor }}">Подробнее</a>
+                            <a class="view_btn" href="{{i.get_url }}">Подробнее</a>
                         </div>
                     </div>
                     {% endfor %}
@@ -273,7 +274,7 @@
         <!--================End Our Service Area =================-->
 
         <!--================ All Services =================-->
-        {% for i in index %}
+        {% for i in all_services %}
         <section id='{{ i.service_id }}' class="who_we_are_area">
             <div class="container">
                 <div class="row who_we_inner">
@@ -283,14 +284,14 @@
                                 <h2>{{ i.name }} <br class="title_br" /> </h2>
                                 <h6>{{ i.slogan }}</h6>
                             </div>
-                            <p>{{ i.long_description }}
-</p>
+                            <p>{{ i.text_1 }}
+                            <a href="{{i.get_url }}">Подробнее >></a></p>
                             <div class="border_bar"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="who_we_image">
-                            <img style="width:100%;" src="{{ i.image.url }}" alt="">
+                            <img style="width:100%;" src="{{ i.image_main.url }}" alt="{{ i.name }}" title="{{ i.short_description }}">
                         </div>
                     </div>
                 </div>
@@ -430,7 +431,7 @@
             <div class="footer_copy_right">
                 <div class="container">
                     <h4><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Создание сайта: <a href="https://iko-studio.com" target="_blank">iko-studio.com</a> & <a href="https://colorlib.com" target="_blank">Colorlib</a></h4>
+                        Создание сайта: <a href="https://iko-studio.com" target="_blank">iko-studio.com</a> </h4>
                 </div>
             </div>
         </footer>

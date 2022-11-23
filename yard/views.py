@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from .models import Service, Testimonial, Project, Sphere, Feedback
+from services.models import ServiceDetail
 from .forms import UserForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -12,11 +13,13 @@ class IndexView(ListView):
     queryset = Service.objects.all()
 
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
+        context = super().get_context_data()
         context['testimonial_list'] = Testimonial.objects.all()
         context['project_list'] = Project.objects.all()
         context['sphere_list'] = Sphere.objects.all()
+        context['all_services'] = ServiceDetail.objects.all()
         return context
+
 
 ####### Данные из формы отправляются на емейл и в БД (админку) ########
 

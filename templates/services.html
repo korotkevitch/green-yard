@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>Услуги</title>{% endblock %}
+
+	{% block content %}
+
+        <!--================Banner Area =================-->
+        <section class="banner_area" style="background: url({{ page_services.0.banner.url }}); background-size: cover">
+            <div class="container">
+                <div class="banner_inner_text">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Главная</a></li>
+                        <li class="active"><a href="{% url 'services' %}">Услуги</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--================End Banner Area =================-->
+
+        <!--================Why Chose Us Area =================-->
+        <section class="chose_video_area">
+            <div class="chose_left_text">
+                <div class="chose_text_inner">
+                    <div class="main_b_title">
+                        {{ page_services.0.title|safe}}
+                        <h6>{{ page_services.0.subtitle|safe}}</h6>
+                    </div>
+                    {{ page_services.0.text|safe}}
+                </div>
+            </div>
+            <div class="chose_video_right">
+                <div class="chose_video_inner">
+                    <img src="{{ page_services.0.image.url}}" alt="">
+<!--                    <a class="popup-youtube" href="https://www.youtube.com/watch?v=5GL9JoH4Sws"><img src="{% static 'img/icon/video-puse.png' %}" alt=""></a>-->
+                </div>
+            </div>
+        </section>
+        <!--================End Why Chose Us Area =================-->
+
+        <!--================Our Service2 Area =================-->
+        <section class="our_service_area2">
+            <div class="container">
+                <div class="main_c_b_title">
+                    <h2>Наши<br class="title_br">услуги</h2>
+                    <h6>Воспользуйтесь ими</h6>
+                </div>
+                <div class="row service2_inner">
+                    {% for i in service_page_services %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service2_item">
+                            <div class="service2_item_inner">
+                                <div class="service2_item_inner_content">
+                                    <div class="service_icon">
+                                        <img src="{{ i.icon_1.url }}" alt="">
+                                        <img src="{{ i.icon_2.url }}" alt="">
+                                    </div>
+                                    <h4>{{ i.name }}</h4>
+                                    <p>{{ i.short_description }}</p>
+                                    <a class="view_btn" href="{{ i.get_url }}">В раздел</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        <!--================End Our Service2 Area =================-->
+
+        <!--================Service Single Area =================-->
+            <div class="container">
+                <div class="service_single_inner">
+                    <div class="row s_text_inner">
+                        <div class="col-md-12">
+                            <div class="left_service_desc">
+                                <h4 class="project_title">{{ page_services.0.bottom_title }}</h4>
+                                <p>{{ page_services.0.bottom_text|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Service Single Area =================-->
+
+
+    {% endblock %}

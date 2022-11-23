@@ -1,0 +1,98 @@
+{% load static %}
+
+
+<!--================Address Area =================-->
+        <section class="address_area">
+            <div class="container">
+                <div class="row address_inner">
+                    <div class="col-md-4">
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="{% static "img/icon/place-icon.png" %}" alt="">
+                            </div>
+                            <div class="media-body">
+                                <h4>Адрес:</h4>
+                                <h5>г.Гомель, Беларусь</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="tel:+375296649039"><img src="{% static "img/icon/phone-icon.png" %}" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <h5><a href="tel:+375296649039"><i class="fa fa-phone"></i>+375 (29) 664-90-39</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="{% static "img/icon/inbox-icon.png" %}" alt="">
+                            </div>
+                            <div class="media-body">
+                                <h5>info@green-yard.by</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Address Area =================-->
+
+        <!--================Footer Area =================-->
+        <footer class="footer_area">
+            <div class="footer_copy_right">
+                <div class="container">
+                    <h4><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Создание сайта: <a href="https://iko-studio.com" target="_blank">iko-studio.com</a></h4>
+                </div>
+            </div>
+        </footer>
+        <!--================End Footer Area =================-->
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLabel" style="color: gray;">Форма заказа</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form style="color:black;" class="bg-light p-5 contact-form" action="/contact_form" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Ваше имя" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Еmail">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="phone" placeholder="Телефон" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" cols="30" rows="7" placeholder="Информация, заказ" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <input type="file" class="form-control" name="file" placeholder="Файл">
+              </div>
+                <p style="margin-top:-15px;margin-bottom:15px;font-size:14px;font-style:italic;">Файлы pdf, doc, docx, jpg, jpeg до 5 Мб.</p>
+
+<!--              <div style="transform:scale(0.9); transform-origin:0; margin-bottom:7px;"  class="g-recaptcha" data-sitekey="6LdSncsdAAAAAG3vhr3zVFW5MF7lTLxS_5i06TFj"></div>-->
+
+              <div class="form-group">
+                <input type="submit" value="Отправить" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            Отправляя заказ, вы соглашаетесь на обработку персональных данных.
+          </div>
+        </div>
+      </div>
+    </div>
